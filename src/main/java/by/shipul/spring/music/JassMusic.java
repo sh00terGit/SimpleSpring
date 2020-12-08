@@ -1,5 +1,8 @@
 package by.shipul.spring.music;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class JassMusic implements IMusic{
 
     @Override

@@ -7,27 +7,7 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
         <context:property-placeholder location="classpath:MusicPlayer.properties"/>
-    <bean id="RockBean"
-          class="by.shipul.spring.music.RockMusic">
-    </bean>
-    <bean id="JassBean"
-          class="by.shipul.spring.music.JassMusic">
-    </bean>
-    <bean id="ClassicalBean"
-          class="by.shipul.spring.music.ClassicalMusic"
-          init-method="doMyInit"
-          destroy-method="doMyDestroy"
-    >
-    </bean>
-    <bean id="musicPlayer"
-        class="by.shipul.spring.music.MusicPlayer">
-        <property name="listMusic">
-            <list>
-                <ref bean="ClassicalBean"/>
-                <ref bean="JassBean"/>
-                <ref bean="RockBean"/>
-            </list>
-        </property>
-    </bean>
+<!--внедрение через аннотации -->
+        <context:component-scan base-package="by.shipul.spring"/>
 
 </beans>

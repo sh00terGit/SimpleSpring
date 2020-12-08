@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans  xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:context="http://www.springframework.org/schema/context"
+        xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+    <context:property-placeholder location="classpath:MusicPlayer.properties"/>
+
+    <!--внедрение через xml -->
+
+    <bean id="RockBean"
+          class="by.shipul.spring.music.RockMusic">
+    </bean>
+    <bean id="JassBean"
+          class="by.shipul.spring.music.JassMusic"
+    />
+    <bean id="ClassicalBean"
+          class="by.shipul.spring.music.ClassicalMusic"
+          init-method="doMyInit"
+          destroy-method="doMyDestroy"
+    />
+    <bean id="musicPlayer"
+          class="by.shipul.spring.music.MusicPlayer">
+    <property name="listMusic">
+        <list>
+            <ref bean="ClassicalBean"/>
+            <ref bean="JassBean"/>
+            <ref bean="RockBean"/>
+        </list>
+    </property>
+    </bean>
+</beans>
