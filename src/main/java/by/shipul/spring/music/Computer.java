@@ -16,6 +16,14 @@ public class Computer {
         this.id=1;
     }
 
+    public void playPlayer() {
+        player.playMusic();
+    }
+
+    public void playPlayerShuffle() {
+        player.playShuffleMusic();
+    }
+
     @Override
     public String toString() {
         return "Computer{" +

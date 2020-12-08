@@ -14,7 +14,7 @@ public class TestSpring {
         //MusicPlayer player = context.getBean("musicPlayer", MusicPlayer.class);
         //player.playMusic();
         Computer computer = context.getBean("computer",Computer.class);
-        LOG(computer.toString());
+        computer.playPlayerShuffle();
        // context.close();
 
     }

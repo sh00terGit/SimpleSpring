@@ -18,9 +18,17 @@ public class CollectionConfig {
     @Bean
     public List<IMusic> musicList() {
         ArrayList<IMusic> music = new ArrayList<>();
-        music.add(new ClassicalMusic());
-        music.add(new JassMusic());
-        music.add(new RockMusic());
+        music.add(new ClassicalMusic("classic1"));
+        music.add(new ClassicalMusic("classic2"));
+        music.add(new ClassicalMusic("classic3"));
+
+        music.add(new JassMusic("jass1"));
+        music.add(new JassMusic("jass2"));
+        music.add(new JassMusic("jass3"));
+
+        music.add(new RockMusic("rock1"));
+        music.add(new RockMusic("rock2"));
+        music.add(new RockMusic("rock3"));
         return music;
     }
 }

@@ -2,10 +2,9 @@ package by.shipul.spring.music;
 
 import org.springframework.stereotype.Component;
 
-@Component
-public class RockMusic implements IMusic {
-    @Override
-    public String getSong() {
-        return "RockMusic";
+
+public class RockMusic extends AbstractMusic implements IMusic {
+    public RockMusic(String song) {
+        super(song);
     }
 }

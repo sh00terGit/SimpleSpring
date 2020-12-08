@@ -2,10 +2,14 @@ package by.shipul.spring.music;
 
 import by.shipul.spring.TestSpring;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
+
 @Component
 public class MusicPlayer {
 
@@ -32,7 +36,8 @@ public class MusicPlayer {
         this.listMusic = listMusic;
     }
 
-    public MusicPlayer(ClassicalMusic music) {
+    //@Autowired
+    public MusicPlayer(@Qualifier("rockMusic") IMusic music) {
         listMusic.add(music);
     }
 
@@ -41,6 +46,17 @@ public class MusicPlayer {
             TestSpring.LOG(sing.getSong());
         }
     }
+
+
+    public void playShuffleMusic() {
+        int i=1;
+        Random random = new Random();
+        while (i<=9) {
+            TestSpring.LOG(listMusic.get(random.nextInt(6)).getSong());
+            i++;
+        }
+    }
+
 
     @Override
     public String toString() {
